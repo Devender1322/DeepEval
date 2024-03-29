@@ -1,0 +1,120 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Metrics Report</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <style>
+                body {
+                    font-family: 'Arial', sans-serif;
+                    background-color: #f8f9fa;
+                    color: #495057;
+                    margin: 0;
+                }
+
+                .container {
+                    max-width: 800px;
+                    margin: 0 auto;
+                    background-color: #ffffff;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    padding: 20px;
+                    border-radius: 10px;
+                    margin-top: 20px;
+                }
+
+                header {
+                    background-color: #343a40;
+                    padding: 20px;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 10px 10px 0 0;
+                }
+
+                h1, h2 {
+                    color: #007bff;
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 20px;
+                }
+
+                table, th, td {
+                    border: 1px solid #dee2e6;
+                }
+
+                th, td {
+                    padding: 12px;
+                    text-align: left;
+                }
+
+                th {
+                    background-color: #007bff;
+                    color: #fff;
+                }
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    margin-top: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+            </style>
+        </head>
+        <body>
+            <div class='container'>
+                <header><h1 class="display-4">Metrics Report</h1></header>
+                <section id='test-cases'>
+                    <h2 class="mt-4">Test Cases</h2>
+                    <table border="1" class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Test Case</th>
+      <th>Metric</th>
+      <th>Score</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>test_111</td>
+      <td>HallucinationMetric</td>
+      <td>0.985545</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>test_111</td>
+      <td>BiasMetric</td>
+      <td>0.048072</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>test_111</td>
+      <td>LatencyMetric</td>
+      <td>0.800000</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>test_111</td>
+      <td>CostMetric</td>
+      <td>12.000000</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+                </section>
+                <section id='pass-fail-distribution'>
+                    <h2 class="mt-4">Pass/Fail Distribution</h2>
+                    <img src='pie_chart.png' alt='Pass/Fail Distribution' class="img-fluid">
+                </section>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </body>
+        </html>
+        

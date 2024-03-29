@@ -1,0 +1,47 @@
+{
+    "entrie": [  
+        {
+            "input": "What are the symptoms of coronavirus?",
+            "actual_output": "Symptoms include mild respiratory infections, like the common cold, fever, cough, shortness of breath, and breathing difficulties",
+        
+            "latency": 0.3,
+            "cost": 7,
+            "id": "test101"
+        },
+        {
+            "input": "Does coronavirus cause death?",
+            "actual_output": "Covid19 doesnot cause death",
+            "expected_output": "If condition worsens Covid19 can be fatal",
+            
+            "latency": 0.7,
+            "cost": 8,
+            "id": "test102"
+        },
+        {
+            "input": "Was COVID declared as a pandemic?",
+            "actual_output": "Yes it had been declared as a pandemic",
+            "expected_output": "In 2019 it was declared a pandemic by the World Health Organization (WHO)",
+            
+            "latency": 0.9,
+            "cost": 13,
+            "id": "test103"
+        },
+        {
+            "input": "Did the government help the migrant labourers?",
+            "actual_output": "They were not given proper help",
+            "expected_output": "Government help was provided  improperly as well as not on time.",
+            "latency": 0.8,
+            "cost": 13,
+            "id": "test104"
+        },
+
+        {
+            "input": "Where did coronavirus originate from?",
+            "actual_output": "There are two hypotheses as to COVID-19's origins: exposure to an infected animal or a laboratory leak. There is not enough evidence to support either argument.",
+            "expected_output": "Covid originated from Wuhan,China",
+            "latency": 0.8,
+            "cost": 5,
+            "id": "test105"
+        }
+    ]
+}

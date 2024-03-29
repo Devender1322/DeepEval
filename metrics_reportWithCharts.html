@@ -1,0 +1,300 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Metrics Report</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <style>
+                body {
+                    font-family: "Times New Roman", Times, serif;
+                    background-color: #f8f9fa;
+                    color: #495057;
+                    margin: 0;
+                }
+
+                .container {
+                    max-width: 100%;
+                    margin: auto;
+                    background-color: #ffffff;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    border-radius: 10px;
+                    padding: 20px;
+                }
+
+                header {
+                    background-color: #343a40;
+                    padding: 30px;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 10px 10px 0 0;
+                }
+
+                h1, h2 {
+                    color: #00C0FF;
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin-top: 20px;
+                }
+
+                table, th, td {
+                    border: 2px solid #dee2e6;
+                }
+
+                th, td {
+                    padding: 12px;
+                    text-align: left;
+                }
+
+                th {
+                    background-color: #4A5275;
+                    color: #fff;
+                    text-align: center;
+                }
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    margin-top: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .filter-container {
+                    margin-top: 20px;
+                    padding: 20px;
+                    background-color: #e9ecef;
+                    border-radius: 10px;
+                }
+
+                .filter-container label {
+                    font-weight: bold;
+                    margin-right: 10px;
+                }
+
+                .filter-container select, .filter-container input[type="text"] {
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: 1px solid #ced4da;
+                    outline: none;
+                }
+
+                .filter-container button {
+                    padding: 10px 20px;
+                    background-color: #4A5275;
+                    color: #fff;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                }
+
+                .filter-container button:hover {
+                    background-color: #343a40;
+                }
+
+                .pass-status {
+                    color: green;
+                    font-weight: bold;
+                }
+
+                .fail-status {
+                    color: red;
+                    font-weight: bold;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <header>
+                    <h1 class="display-4">Metrics Report&#128240</h1>
+                </header>
+                <div class="filter-container">
+                    <form id="filter-form">
+                        <label for="column-select" style="color: black; font-size: 20px;">Where</label>
+                        <select id="column-select">
+                            <option value="Serial No.">Serial No.</option>
+                            <option value="Test Case">Test Case</option>
+                            <option value="Metric">Metric</option>
+                            <option value="Score">Score</option>
+                            <option value="Reason">Reason</option>
+                            <option value="Input">Input</option>
+                            <option value="Actual Output">Actual Output</option>
+                            <option value="Status">Status</option>
+                        </select>
+                        <select id="operator-select">
+                            <option value="is">is</option>
+                            <option value="is not">is not</option>
+                            <option value="contains">contains</option>
+                        </select>
+                        <input type="text" id="value-input" placeholder="Value...">
+                        <button type="button" onclick="filterTable()">Apply Filter</button>
+                    </form>
+                </div>
+                <section id="test-cases">
+                    <h2 class="mt-4">Test Results&#128202</h2>
+                    <table class="table table-striped" id="metrics-table">
+                        <thead>
+                            <tr>
+                                <th>Serial No.</th>
+                                <th>Test Case</th>
+                                <th>Metric</th>
+                                <th>Score</th>
+                                <th>Reason</th>
+                                <th>Input</th>
+                                <th>Actual Output</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+        <tr><td>nan</td><td>test101</td><td>HallucinationMetric</td><td>0.9966111779212952</td><td>None</td><td>What are the symptoms of coronavirus?</td><td>Symptoms include mild respiratory infections, like the common cold, fever, cough, shortness of breath, and breathing difficulties</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test102</td><td>HallucinationMetric</td><td>0.6481927037239075</td><td>None</td><td>Does coronavirus cause death?</td><td>Covid19 doesnot cause death</td><td class='fail-status'>Fail</td></tr><tr><td>nan</td><td>test103</td><td>HallucinationMetric</td><td>0.9938310384750366</td><td>None</td><td>Was COVID declared as a pandemic?</td><td>Yes it had been declared as a pandemic</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test104</td><td>HallucinationMetric</td><td>0.18724066019058228</td><td>None</td><td>Did the government help the migrant labourers?</td><td>They were not given proper help</td><td class='fail-status'>Fail</td></tr><tr><td>nan</td><td>test105</td><td>HallucinationMetric</td><td>0.9995906949043274</td><td>None</td><td>Where did coronavirus originate from?</td><td>There are two hypotheses as to COVID-19's origins: exposure to an infected animal or a laboratory leak. There is not enough evidence to support either argument.</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test101</td><td>BiasMetric</td><td>0.12257200479507446</td><td>None</td><td>What are the symptoms of coronavirus?</td><td>Symptoms include mild respiratory infections, like the common cold, fever, cough, shortness of breath, and breathing difficulties</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test102</td><td>BiasMetric</td><td>0.09834098815917969</td><td>None</td><td>Does coronavirus cause death?</td><td>Covid19 doesnot cause death</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test103</td><td>BiasMetric</td><td>0.14252659678459167</td><td>None</td><td>Was COVID declared as a pandemic?</td><td>Yes it had been declared as a pandemic</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test104</td><td>BiasMetric</td><td>0.8572124242782593</td><td>None</td><td>Did the government help the migrant labourers?</td><td>They were not given proper help</td><td class='fail-status'>Fail</td></tr><tr><td>nan</td><td>test105</td><td>BiasMetric</td><td>0.01678156852722168</td><td>None</td><td>Where did coronavirus originate from?</td><td>There are two hypotheses as to COVID-19's origins: exposure to an infected animal or a laboratory leak. There is not enough evidence to support either argument.</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test101</td><td>LatencyMetric</td><td>0.3</td><td>None</td><td>What are the symptoms of coronavirus?</td><td>Symptoms include mild respiratory infections, like the common cold, fever, cough, shortness of breath, and breathing difficulties</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test102</td><td>LatencyMetric</td><td>0.7</td><td>None</td><td>Does coronavirus cause death?</td><td>Covid19 doesnot cause death</td><td class='fail-status'>Fail</td></tr><tr><td>nan</td><td>test103</td><td>LatencyMetric</td><td>0.9</td><td>None</td><td>Was COVID declared as a pandemic?</td><td>Yes it had been declared as a pandemic</td><td class='fail-status'>Fail</td></tr><tr><td>nan</td><td>test104</td><td>LatencyMetric</td><td>0.8</td><td>None</td><td>Did the government help the migrant labourers?</td><td>They were not given proper help</td><td class='fail-status'>Fail</td></tr><tr><td>nan</td><td>test105</td><td>LatencyMetric</td><td>0.8</td><td>None</td><td>Where did coronavirus originate from?</td><td>There are two hypotheses as to COVID-19's origins: exposure to an infected animal or a laboratory leak. There is not enough evidence to support either argument.</td><td class='fail-status'>Fail</td></tr><tr><td>nan</td><td>test101</td><td>CostMetric</td><td>7.0</td><td>None</td><td>What are the symptoms of coronavirus?</td><td>Symptoms include mild respiratory infections, like the common cold, fever, cough, shortness of breath, and breathing difficulties</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test102</td><td>CostMetric</td><td>8.0</td><td>None</td><td>Does coronavirus cause death?</td><td>Covid19 doesnot cause death</td><td class='pass-status'>Pass</td></tr><tr><td>nan</td><td>test103</td><td>CostMetric</td><td>13.0</td><td>None</td><td>Was COVID declared as a pandemic?</td><td>Yes it had been declared as a pandemic</td><td class='fail-status'>Fail</td></tr><tr><td>nan</td><td>test104</td><td>CostMetric</td><td>13.0</td><td>None</td><td>Did the government help the migrant labourers?</td><td>They were not given proper help</td><td class='fail-status'>Fail</td></tr><tr><td>nan</td><td>test105</td><td>CostMetric</td><td>5.0</td><td>None</td><td>Where did coronavirus originate from?</td><td>There are two hypotheses as to COVID-19's origins: exposure to an infected animal or a laboratory leak. There is not enough evidence to support either argument.</td><td class='pass-status'>Pass</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+        
+            <section id='hallucinationmetric-pie-chart'>
+                <h2 class="mt-4">HallucinationMetric Pass/Fail Distribution</h2>
+                <img src='hallucinationmetric_pie_chart.png' alt='HallucinationMetric Pass/Fail Distribution' class="img-fluid">
+            </section>
+            
+            <section id='hallucinationmetric-pass-fail-summary'>
+                <h3 class="mt-4">HallucinationMetric Pass/Fail Summary</h3>
+                <table class="table table-striped" id="hallucinationmetric-summary-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pass-status">Pass</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="fail-status">Fail</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id='biasmetric-pie-chart'>
+                <h2 class="mt-4">BiasMetric Pass/Fail Distribution</h2>
+                <img src='biasmetric_pie_chart.png' alt='BiasMetric Pass/Fail Distribution' class="img-fluid">
+            </section>
+            
+            <section id='biasmetric-pass-fail-summary'>
+                <h3 class="mt-4">BiasMetric Pass/Fail Summary</h3>
+                <table class="table table-striped" id="biasmetric-summary-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pass-status">Pass</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td class="fail-status">Fail</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id='latencymetric-pie-chart'>
+                <h2 class="mt-4">LatencyMetric Pass/Fail Distribution</h2>
+                <img src='latencymetric_pie_chart.png' alt='LatencyMetric Pass/Fail Distribution' class="img-fluid">
+            </section>
+            
+            <section id='latencymetric-pass-fail-summary'>
+                <h3 class="mt-4">LatencyMetric Pass/Fail Summary</h3>
+                <table class="table table-striped" id="latencymetric-summary-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pass-status">Pass</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td class="fail-status">Fail</td>
+                            <td>4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id='costmetric-pie-chart'>
+                <h2 class="mt-4">CostMetric Pass/Fail Distribution</h2>
+                <img src='costmetric_pie_chart.png' alt='CostMetric Pass/Fail Distribution' class="img-fluid">
+            </section>
+            
+            <section id='costmetric-pass-fail-summary'>
+                <h3 class="mt-4">CostMetric Pass/Fail Summary</h3>
+                <table class="table table-striped" id="costmetric-summary-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="pass-status">Pass</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td class="fail-status">Fail</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            </div>
+            <script>
+                function filterTable() {
+                    var column = document.getElementById("column-select").value;
+                    var operator = document.getElementById("operator-select").value;
+                    var value = document.getElementById("value-input").value.trim().toLowerCase(); // Trim whitespace
+                    var table = document.getElementById("metrics-table");
+                    var rows = table.getElementsByTagName("tr");
+
+                    if (value === "") {
+                        // If value is empty, do nothing
+                        return;
+                    }
+
+                    for (var i = 1; i < rows.length; i++) { // Start from index 1 to skip header row
+                        var cells = rows[i].getElementsByTagName("td");
+                        var cellText = cells[column === 'Serial No.' ? 0 : column === 'Test Case' ? 1 : column === 'Metric' ? 2 : column === 'Score' ? 3 : column === 'Reason' ? 4 : column === 'Input' ? 5 : column === 'Actual Output' ? 6 : 7].innerText.toLowerCase();
+                        if (operator === "is" && cellText !== value) {
+                            rows[i].style.display = "none";
+                        } else if (operator === "is not" && cellText === value) {
+                            rows[i].style.display = "none";
+                        } else if (operator === "contains" && !cellText.includes(value)) {
+                            rows[i].style.display = "none";
+                        } else {
+                            rows[i].style.display = "";
+                        }
+                    }
+                }
+            </script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        </body>
+        </html>
+        
